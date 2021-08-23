@@ -1,0 +1,49 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Student {
+  id: String!
+  firstName: String!
+  lastName: String!
+  email: String!
+  rollId: Int!
+}
+
+type Group {
+  id: String!
+  name: String!
+  type: String!
+  limit: Int
+  students: [String!]
+}
+
+type Query {
+  students: [Student!]!
+  getStudent(id: String!): Student!
+  groups: [Group!]!
+  getGroup(id: String!): Group!
+}
+
+type Mutation {
+  createStudent(studentInput: StudentInput!): Student!
+  updateStudent(studentUpdate: StudentInput!, id: String!): Student!
+  removeStudent(id: String!): Boolean!
+  createGroup(groupInput: GroupInput!): Group!
+  updateGroup(groupUpdate: GroupInput!, id: String!): Group!
+  removeGroup(id: String!): Boolean!
+}
+
+input StudentInput {
+  firstName: String
+  lastName: String
+  email: String
+  rollId: Int
+}
+
+input GroupInput {
+  name: String
+  type: String
+  limit: Int
+  students: [String!]
+}
